@@ -117,11 +117,13 @@ struct Outline : View {
                 .frame(width: 250, height: 250)
                 .overlay(
                     Circle()
-                        .trim(from: 0, to: CGFloat(seconds) * 0.016)
+                        .trim(from: 0, to: CGFloat(seconds) * 0.0165)
                         .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                         .fill(AngularGradient(gradient: .init(colors: colors), center: .center, startAngle: .zero, endAngle: .init(degrees: 360)))
                 )
                 //.animation(.spring(response: 2.0, dampingFraction: 1.0, blendDuration: 1.0))
+            
+                .animation(seconds != 0 ? .spring(response: 2.0, dampingFraction: 1.0, blendDuration: 1.0) : .none)
         }
 
   }
