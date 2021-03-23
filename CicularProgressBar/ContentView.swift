@@ -10,8 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var percentage : CGFloat = 85
-    
     @State var hours: Int = 0
     @State var minutes: Int = 0
     @State var seconds: Int = 0
@@ -35,7 +33,6 @@ struct ContentView: View {
                 Spacer()
                 HStack(spacing: 30) {
                     Button (action: {
-                        //self.percentage = CGFloat(85)
                         startTimer()
                     }) {
                         Image(systemName: "play.circle.fill")
@@ -153,8 +150,8 @@ struct Label: View {
     
     var body : some View {
         ZStack {
-            //Text (String(format: "%.0f", percentage))
-            Text("\(hours):\(minutes):\(seconds)")
+            Text (String(format: "%02d:%02d:%02d", hours,minutes,seconds))
+           // Text("\(hours):\(minutes):\(seconds)")
                 .font (.system(size: 40))
                 .fontWeight(.heavy)
                 .colorInvert()
